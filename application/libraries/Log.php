@@ -1,5 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/*
+ * Codeigniter-Monolog integration package
+ * 
+ * (c) Andreas Pfotenhauer <pfote@ypsilon.net>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 use Monolog\Logger;
 use Monolog\Handler\SyslogHandler;
 use Monolog\Handler\StreamHandler;
@@ -11,16 +20,19 @@ define('CONFIG_FILE','monolog.php');
 
 /**
  * replaces CI's Logger class, use Monolog instead
- * https://github.com/Seldaek/monolog
+ *
+ * see https://github.com/Seldaek/monolog
+ *
  */
-
 class CI_Log {
 
+    /* CI log levels */
     protected $_levels	= array('OFF'   => '0', 
                                 'ERROR' => '1', 
                                 'DEBUG' => '2',  
                                 'INFO'  => '3', 
                                 'ALL'   => '4');
+    /* default loglevel $threshold */
     protected $threshold = '4';
         
     public function __construct() 

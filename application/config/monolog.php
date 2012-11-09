@@ -1,18 +1,20 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /*
-| -------------------------------------------------------------------------
-| monolog config section
-| -------------------------------------------------------------------------
-|
-*/
+ * Codeigniter-Monolog integration package
+ * 
+ * (c) Andreas Pfotenhauer <pfote@ypsilon.net>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
-// valid handlers are syslog|file|gelf
-/* $config['handler'] = 'syslog'; */
-$config['handler'] = 'file';
-$config['name'] = 'codeigniter';
-$config['threshold']  = '4';    /* log all */
-$config['formatter'] = 'line';
 
+/* GENERAL OPTIONS */
+
+$config['handler']     = 'file';    /* valid handlers are syslog|file|gelf */
+$config['name']        = 'codeigniter';
+$config['threshold']   = '4';    /* log all */
+$config['formatter']   = 'line';
 $config['line_format'] = '[%datetime%] %channel%.%level_name%: %message%';
 /* use this of you log to syslog */
 /* $config['line_format'] = '%channel%.%level_name%: %message%'; */
