@@ -80,8 +80,10 @@ class CI_Log {
         /* formatter selection, righht now only line formatter supported */
         switch ($config['formatter']) {
         case 'line':
-            if (isset($config['line_format'])) {
+            if (! isset($config['line_format'])) {
                 $formatter = new LineFormatter("%channel%.%level_name%: %message%");
+            } else {
+                $formatter = new LineFormatter($config['line_format']);
             }
             break;
         }
