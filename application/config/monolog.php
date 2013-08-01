@@ -1,7 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /*
  * Codeigniter-Monolog integration package
- * 
+ *
  * (c) Andreas Pfotenhauer <pfote@ypsilon.net>
  *
  * For the full copyright and license information, please view the LICENSE
@@ -11,13 +11,16 @@
 
 /* GENERAL OPTIONS */
 
-$config['handler']     = 'file';    /* valid handlers are syslog|file|gelf */
+$config['handler']     = 'file';    /* valid handlers are syslog|file|gelf|raven */
 $config['name']        = 'codeigniter';
 $config['threshold']   = '4';    /* log all */
 $config['formatter']   = 'line';
 $config['line_format'] = '[%datetime%] %channel%.%level_name%: %message%';
-/* use this of you log to syslog */
+/* use this if you log to syslog */
 /* $config['line_format'] = '%channel%.%level_name%: %message%'; */
+
+/* use this if you log to raven */
+/* $config['line_format'] = "%message% %context% %extra%\n"; */
 
 /* syslog handler options */
 $config['syslog_channel']  = 'codeigniter';
@@ -29,3 +32,6 @@ $config['file_logfile'] = '/var/tmp/ci.log';
 /* GELF options */
 $config['gelf_host'] = 'localhost';
 $config['gelf_port'] = '12201';
+
+/* Raven options */
+$config['raven_endpoint'] = 'http://api:key@localhost/1';
