@@ -3,7 +3,7 @@ Codeigniter-Monolog
 
 Integrates the Monolog Package (https://github.com/Seldaek/monolog) into CI by overwriting the CI_Log class.
 
-For now, logging into a File, Syslog and into a Graylog Server (GELF) is supported.
+For now, logging into a File, Syslog, Raven and into a Graylog Server (GELF) is supported.
 
 Installation
 ------------
