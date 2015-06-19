@@ -11,7 +11,7 @@
 
 /* GENERAL OPTIONS */
 
-$config['handler']     = 'file';    /* valid handlers are syslog|file|gelf|raven */
+$config['handler']     = 'file';    /* valid handlers are syslog|file|gelf|raven|stackify|loggly */
 $config['name']        = 'codeigniter';
 $config['threshold']   = '4';    /* log all */
 $config['formatter']   = 'line';
@@ -35,3 +35,11 @@ $config['gelf_port'] = '12201';
 
 /* Raven options */
 $config['raven_endpoint'] = 'http://api:key@localhost/1';
+
+/* Stackify options */
+$config['stackify_api_key'] = '';
+$config['stackify_application_name'] = '';
+$config['stackify_environment'] = '';
+
+/* Loggly options */
+$config['loggly_consumer_token'] = '';

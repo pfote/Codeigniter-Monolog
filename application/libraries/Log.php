@@ -16,6 +16,10 @@ use Monolog\Handler\RavenHandler;
 use Monolog\Gelf\MessagePublisher;
 use Monolog\Handler\GelfHandler;
 use Monolog\Formatter\LineFormatter;
+use Stackify\Log\Transport\ExecTransport;
+use Stackify\Log\Monolog\Handler as StackifyHandler;
+use Monolog\Handler\LogglyHandler;
+use Monolog\Formatter\LogglyFormatter;
 
 define('CONFIG_FILE','monolog.php');
 
@@ -76,6 +80,13 @@ class CI_Log {
         case 'raven':
 		    $client = new Raven_Client($config['raven_endpoint']);
 			$handler = new RavenHandler($client, Monolog\Logger::ERROR);
+            break;
+        case 'stackify':
+            $transport = new ExecTransport($config['stackify_api_key']);
+            $handler = new StackifyHandler($config['stackify_application_name'], $config['stackify_environment'], $transport);
+            break;
+        case 'loggly':
+            $handler = new LogglyHandler($config['loggly_consumer_token'] . '/tag/monolog', Logger::ERROR);
             break;
         default:
             exit('not supported log handler: ' . $config['handler']);
