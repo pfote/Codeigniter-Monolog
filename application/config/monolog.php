@@ -11,7 +11,7 @@
 
 /* GENERAL OPTIONS */
 
-$config['handler']     = 'file';    /* valid handlers are syslog|file|gelf|raven */
+$config['handler']     = 'file';    /* valid handlers are syslog|file|gelf|raven|stackify|loggly */
 $config['name']        = 'codeigniter';
 $config['threshold']   = '4';    /* log all */
 $config['formatter']   = 'line';
